@@ -1,0 +1,26 @@
+{
+  "name": "grafos1_war",
+  "version": "1.0.0",
+  "description": "jogo war em grafos",
+  "main": "index.js",
+  "scripts": {
+    "setup-map": "node ./war-game/1-setup-map.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/projeto-de-algoritmos/Grafos1_War.git"
+  },
+  "keywords": [
+    "war"
+  ],
+  "author": "victor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/projeto-de-algoritmos/Grafos1_War/issues"
+  },
+  "homepage": "https://github.com/projeto-de-algoritmos/Grafos1_War#readme",
+  "dependencies": {
+    "graphlib": "^2.1.8"
+  }
+}
