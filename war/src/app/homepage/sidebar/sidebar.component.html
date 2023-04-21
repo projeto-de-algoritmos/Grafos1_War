@@ -1,0 +1,19 @@
+<div class="contain">
+
+    <div class="arrow-drop" data-bs-toggle="collapse" href="#collapse" aria-expanded="true">
+        <img src="../../../assets/img/right-arrow.png" alt ="arrow">
+    </div>
+    <div class="sidebar collapse" id="collapse">
+        <div class="continente" *ngFor="let continente of mapa.continents">
+            <div class="title" data-bs-toggle="collapse" data-bs-target="">
+                <h2>{{continente.name}}</h2>
+            </div>
+            
+            <div class="territorio-card" id="{{continente.id}}" *ngFor="let territorio of continente.regions">
+                <p (click)="checkMap(territorio.name)" >{{territorio.name}}</p>
+                <p>Tropas: 10</p>
+            </div>
+        </div>
+    </div>
+    
+</div>

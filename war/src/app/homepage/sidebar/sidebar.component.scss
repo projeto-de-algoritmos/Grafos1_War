@@ -1,0 +1,42 @@
+.contain {
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sidebar {
+    background-color: white;
+    border-radius: 0 0 0 10px;
+    width: 60%;
+
+}
+
+.arrow-drop {
+    background-color: white;
+    border-radius: 10px 0 0 10px;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    border-right: 2px solid gray;
+    cursor: pointer;
+    
+    img{
+        rotate: 180deg;
+    }
+}
+
+.continente {
+    height:200px;
+    overflow: auto;
+}
+
+.territorio-card {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.title {
+    background-color: black;
+    color: white;
+}
