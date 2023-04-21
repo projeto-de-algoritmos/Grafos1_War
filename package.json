@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/projeto-de-algoritmos/Grafos1_War#readme",
   "dependencies": {
-    "graphlib": "^2.1.8"
+    "graphlib": "^2.1.8",
+    "prompt-sync": "^4.2.0"
   }
 }
