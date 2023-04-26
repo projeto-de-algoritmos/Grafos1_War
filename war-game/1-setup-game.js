@@ -138,7 +138,7 @@ for (let i = 0; i < jogadores.length; i++) {
 
 /** 
  * Adição inicial de tropas
- */
+
 
 
 const prompt = require("prompt-sync")();
@@ -191,6 +191,8 @@ for (let i = 0; i < jogadores.length; i++) {
 
 //console.log(territorios);
 
+ */
+
 
 //---------------------------------------------------------------------------------//
 
@@ -213,6 +215,62 @@ for (let i = 0; i < jogadores.length; i++) {
     jogador_objetivo.push({ 'jogador': i, 'objetivo': objetivoIndex[i] })
 }
 
-console.log(jogador_objetivo)
+//console.log(jogador_objetivo)
 
 //---------------------------------------------------------------------------------//
+
+/**
+ * BFS de um mesmo continente
+ */
+const jogadores_continente = [];
+
+function bfs_Continente(graph, noInicio) {
+
+    const fila = [];
+    const visitado = new Array(graph.nVertices).fill(false);
+
+    visitado[noInicio] = true;
+
+    fila.push(noInicio);
+
+    let territorio_busca = territorios.findIndex(function (elem) {
+        return elem.id == noInicio;
+    });
+
+    let continente_busca = territorios[territorio_busca].continente;
+
+    jogadores_continente.push(territorios[territorio_busca].jogador);
+
+    while (fila.length > 0) {
+        const no = fila.shift();
+
+        for (const w of graph.ListaAdj.get(no)) {
+
+            let t_v = territorios.findIndex(function (elem) {
+                return elem.id == w;
+            });
+
+            if (territorios[t_v].continente == continente_busca) {
+
+                // Verifica se o vértice ainda não foi visitado
+                if (!visitado[w]) {
+                    // Marca o vértice como visitado e o adiciona na fila
+                    visitado[w] = true;
+                    fila.push(w);
+
+                    jogadores_continente.push(territorios[t_v].jogador);
+                }
+
+            }
+        }
+
+        // Verifica se todos os continentes (lista de jogadores por continente visitado) pertencem a um mesmo jogador
+        if (jogadores_continente.every(value => value === jogadores_continente[0])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+bfs_Continente(mapa, 42);
