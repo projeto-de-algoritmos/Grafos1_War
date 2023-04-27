@@ -4,7 +4,7 @@
   "description": "jogo war em grafos",
   "main": "index.js",
   "scripts": {
-    "setup-map": "node ./war-game/1-setup-map.js",
+    "game": "node ./war-game/game.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,6 +22,7 @@
   "homepage": "https://github.com/projeto-de-algoritmos/Grafos1_War#readme",
   "dependencies": {
     "graphlib": "^2.1.8",
-    "prompt-sync": "^4.2.0"
+    "prompt-sync": "^4.2.0",
+    "readline-sync": "^1.4.10"
   }
 }
