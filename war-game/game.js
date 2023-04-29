@@ -26,7 +26,7 @@ const { jogador_objetivo } = require('./objetivos-utils.js');
 
 // Módulo de Utils ->
 // ----> Função de Fim de Jogo
-const { fim_Jogo } = require('./utils.js');
+const { fim_Jogo, sistema_Ataque } = require('./utils.js');
 //console.log(fim_Jogo()); -> OK
 
 let jogador_vencedor = -1;
@@ -66,6 +66,52 @@ while (jogador_vencedor == -1) {
             // Adiciona tropa ao território
             quantidadeTropasRestante = adicionarTropa(t, i, quantidadeTropasRestante);
         }
+
+        console.log('\n');
+
+        // ATAQUE
+        var ataque = prompt("Você deseja realizar algum ataque? (0 para NÃO e 1 para SIM) ");
+        var continuaAtaque = 1;
+        while (continuaAtaque == 1) {
+            if (ataque == 1) {
+                let jogador_territorios = territorios.filter((territorio) => territorio.jogador === i);
+
+                // Lista território
+                for (let j = 0; j < jogador_territorios.length; j++) { // Cada jogador tem 7 territórios no início (em ordem)
+                    console.log("Id: " + jogador_territorios[j].id + " - Nome: " + jogador_territorios[j].nome + " - Tropas:" + jogador_territorios[j].tropas);
+
+                    console.log('Territórios possíveis de ataque para esse território: ');
+
+                    let vizinhos = mapa.ListaAdj.get(jogador_territorios[j].id);
+                    for (let i = 0; i < vizinhos.length; i++) {
+                        // Encontra território
+                        let t_vz = territorios.findIndex(function (elem) {
+                            return elem.id == vizinhos[i];
+                        });
+
+                        console.log("\t -> " + "Id: " + territorios[t_vz].id + " - Nome: " + territorios[t_vz].nome + " - Tropas:" + territorios[t_vz].tropas);
+                    }
+
+                    console.log('\n');
+
+                }
+
+                var territorioAtaque = prompt("Coloque o ID do SEU território que deseja usar para atacar. ");
+                territorioAtaque = territorios.findIndex(function (elem) {
+                    return elem.id == territorioAtaque;
+                });
+
+                var territorioDefesa = prompt("Coloque o ID do SEU território que deseja atacar. ");
+                territorioDefesa = territorios.findIndex(function (elem) {
+                    return elem.id == territorioDefesa;
+                });
+
+                let definicaoAtaque = sistema_Ataque(territorios[territorioAtaque].id, territorios[territorioDefesa].id, i);
+
+                continuaAtaque = prompt("Você deseja realizar mais algum ataque? (0 para NÃO e 1 para SIM) ");
+            }
+        }
+
     }
     // No fim da rodada analisa se um jogador ganhou o jogo ou não
     jogador_vencedor = fim_Jogo();
