@@ -1,0 +1,15 @@
+<div class="battle-area">
+    <div class="close">
+        <a class = "me-2 mt-2 bi bi-x-lg" (click)="close()"></a>
+    </div>
+    <h2>Seu territorio</h2>
+    <p>{{territory.name}}</p>
+    <h2>Territorio inimigo</h2>
+    <p *ngIf="enemy">{{enemy.name}}</p>
+
+    <select class="form-select" aria-label="Default select example">
+        <option *ngFor="let item of neighborList" value="{{item}}">{{item}}</option>
+    </select>
+
+    <button *ngIf="enemy">Atacar</button>
+</div>

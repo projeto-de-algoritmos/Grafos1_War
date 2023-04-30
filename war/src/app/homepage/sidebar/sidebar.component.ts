@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { map }  from '../../../assets/map/mapa-war';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 import { Mapa } from 'src/app/interface/Mapa';
+import { Region } from 'src/app/interface/Region';
+import { HomepageService } from '../homepage.service';
 
 
 @Component({
@@ -10,37 +11,38 @@ import { Mapa } from 'src/app/interface/Mapa';
 })
 export class SidebarComponent implements OnInit {
   
-  mapa !: Mapa;
+  @Input() mapa !: Mapa;
+  @Input() active !: boolean;
+  @Output() territory : EventEmitter<any> = new EventEmitter();
+
   player : number [] = [1,2,3,4,5,6];
-  ownerTerritory : { ownerId: number, territoryId: number } [] = [{ownerId:1,territoryId:1}];
+
+
+  constructor(private homePageService: HomepageService){}
 
   ngOnInit() : void {
-    console.log(map)
-
-    this.mapa = map;
+    //console.log(map)
     this.distribuiton();
   }
 
-  checkMap(territorio : string) : void {
-    window.alert(`Territorio Selecionado: ${territorio}`)
+  checkMap(territorio : Region) : void {
+
+    //window.alert(`Territorio Selecionado: ${territorio.name}`)
+    this.territory.emit(territorio)
+
   }
 
-  colorTerritory(territoryId : number) : string {
+  colorTerritory(continentId : number,territoryId : number) : string {
     
-    const playerId = this.ownerTerritory.find(territory => territory.territoryId == territoryId);
-    console.log(territoryId, playerId)
+    const playerId = this.mapa.continents[continentId].regions.find(region => region.id == territoryId);
 
-    const player1 = this.ownerTerritory.filter(territory => territory.ownerId == 1);
-
-    console.log(player1.length)
-
-    switch (playerId?.ownerId) {
+    switch (playerId?.owner) {
       case 1:
         return 'blue';
       case 2:
         return 'orange';
       case 3:
-        return 'yellow';
+        return 'red';
       case 4:
         return 'purple';
       case 5:
@@ -53,12 +55,14 @@ export class SidebarComponent implements OnInit {
   }
 
   distribuiton() : void {
+
     this.mapa.continents.forEach(continent => {
-      continent.regions.forEach(regions => {
-        this.ownerTerritory.push({ownerId: this.player[Math.floor(Math.random()*5)], territoryId: regions.id})
+      continent.regions.forEach((regions,index) => {
+        this.homePageService.modifyOwner(continent.id - 1, index, Math.floor(Math.random()*7- 0.1))
       })
 
     })
-    console.log(this.ownerTerritory)
+
+    console.log(this.homePageService.returnMap())
   }
 }

@@ -1,0 +1,20 @@
+<div class="troop-area">
+    <div class="close">
+        <a class = "me-2 mt-2 bi bi-x-lg" (click)="close()"></a>
+    </div>
+
+    <p> É sua vez jogador {{player}}. Hora de alocar suas tropas!!! </p>
+
+    <div *ngIf="territory">
+        <h4>Territorio Selecionado</h4>
+        <p>{{territory.name}}</p>
+        <p> Tropas: {{territory.tropas}}</p>
+    </div>
+
+    <p>Tropas Restantes: {{avaliableArmy}}</p>
+
+    <button *ngIf="territory" (click)="add(territory)" >Adicionar</button>
+    <button *ngIf="territory">Remover</button>
+
+</div>
+

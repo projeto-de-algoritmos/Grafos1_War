@@ -8,12 +8,36 @@
         <img src="https://a-static.mlcdn.com.br/1500x1500/jogo-war-tabuleiro-o-jogo-da-estrategia-war-edicao-especial-grow/magazineluiza/220544300/240b6d61d4bbeb13d903bea4fe528704.jpg" alt="Mapa">
         
         <div class="button-area">
-            <button>Iniciar</button>
+            <button *ngIf="!started" (click)="startGame()">Iniciar</button>
             <button>Instruções</button>
+            <button *ngIf="!isAllocating && started" (click)="changeTurn()">Finalizar Ataque</button>
+        
         </div>
+        
+        <div class="p-3 w-100">
+
+            <app-add-troop
+            *ngIf="isAllocating"
+            [player]="turn"
+            (alocated)="endAllocation()"
+            [territory]="territorio"
+            ></app-add-troop>
+            
+        </div>
+
 
     </div>
 
-    <app-sidebar></app-sidebar>
+    <app-sidebar 
+        (territory)="handleClick($event)"
+        [active]="started"
+        [mapa]="mapa"
+    ></app-sidebar>
     
+    <app-battle-page 
+        *ngIf="aux"
+        (closed)="changeAux()"
+        [territory]="territorio"
+    ></app-battle-page>
+
 </div>

@@ -8,38 +8,65 @@ export const map = {
         {
           id: 1,
           name: "Alaska",
+          continentId: 1,
+          owner: 0,
+          tropas: 2
         },
         {
           id: 2,
           name: "Mackenzie",
+          continentId: 1,
+          owner: 0,
+          tropas: 2
         },
         {
           id: 3,
           name: "Groelândia",
+          continentId: 1,
+          owner: 0,
+          tropas: 2
         },
         {
           id: 4,
           name: "Vancouver",
+          continentId: 1,
+          owner: 0,
+          tropas: 2
         },
         {
           id: 5,
           name: "Ottawa",
+          continentId: 1,
+          owner: 0,
+          tropas: 2
         },
         {
           id: 6,
           name: "Labrador",
+          continentId: 1,
+          owner: 0,
+          tropas: 2
         },
         {
           id: 7,
           name: "Nova York",
+          continentId: 1,
+          owner: 0,
+          tropas: 2
         },
         {
           id: 8,
           name: "Califórnia",
+          continentId: 1,
+          owner: 0,
+          tropas: 2
         },
         {
           id: 9,
           name: "México",
+          continentId: 1,
+          owner: 0,
+          tropas: 2
         }
       ]
     },
@@ -51,22 +78,30 @@ export const map = {
         {
           id: 10,
           name: "Venezuela",
-          continentId: 2
+          continentId: 2,
+          owner: 0,
+          tropas: 2
         },
         {
           id: 11,
           name: "Peru",
-          continentId: 2
+          continentId: 2,
+          owner: 0,
+          tropas: 2
         },
         {
           id: 12,
           name: "Brasil",
-          continentId: 2
+          continentId: 2,
+          owner: 0,
+          tropas: 2
         },
         {
           id: 13,
           name: "Argentina",
-          continentId: 2
+          continentId: 2,
+          owner: 0,
+          tropas: 2
         }
       ]
     },
@@ -78,37 +113,51 @@ export const map = {
         {
           id: 14,
           name: "Islândia",
-          continentId: 3
+          continentId: 3,
+          owner: 0,
+          tropas: 2
         },
         {
           id: 15,
           name: "Inglaterra",
-          continentId: 3
+          continentId: 3,
+          owner: 0,
+          tropas: 2
         },
         {
           id: 16,
           name: "Alemanha",
-          continentId: 3
+          continentId: 3,
+          owner: 0,
+          tropas: 2
         },
         {
           id: 17,
           name: "França",
-          continentId: 3
+          continentId: 3,
+          owner: 0,
+          tropas: 2
         },
         {
           id: 18,
           name: "Suécia",
-          continentId: 3
+          continentId: 3,
+          owner: 0,
+          tropas: 2
         },
         {
           id: 19,
           name: "Polônia",
-          continentId: 3
+          continentId: 3,
+          owner: 0,
+          tropas: 2
         },
         {
           id: 20,
           name: "Moscou",
-          continentId: 3
+          continentId: 3,
+          owner: 0,
+          tropas: 2
         },
       ]
     },
@@ -120,32 +169,44 @@ export const map = {
         {
           "id": 21,
           name: "Argélia",
-          continentId: 4
+          continentId: 4,
+          owner: 0,
+          tropas: 2
         },
         {
           "id": 22,
           name: "Egito",
-          continentId: 4
+          continentId: 4,
+          owner: 0,
+          tropas: 2
         },
         {
           "id": 23,
           name: "Sudão",
-          continentId: 4
+          continentId: 4,
+          owner: 0,
+          tropas: 2
         },
         {
           "id": 24,
           name: "Congo",
-          continentId: 4
+          continentId: 4,
+          owner: 0,
+          tropas: 2
         },
         {
           "id": 25,
           name: "África do Sul",
-          continentId: 4
+          continentId: 4,
+          owner: 0,
+          tropas: 2
         },
         {
           "id": 26,
           name: "Madagascar",
-          continentId: 4
+          continentId: 4,
+          owner: 0,
+          tropas: 2
         }
       ]
     },
@@ -157,62 +218,86 @@ export const map = {
         {
           "id": 27,
           name: "Omsk",
-          continentId: 5
+          continentId: 5,
+          owner: 0,
+          tropas: 2
         },
         {
           "id": 28,
           name: "Aral",
-          continentId: 5
+          continentId: 5,
+          owner: 0,
+          tropas: 2
         },
         {
           "id": 29,
           name: "Oriente Médio",
-          continentId: 5
+          continentId: 5,
+          owner: 0,
+          tropas: 2
         },
         {
           "id": 30,
           name: "Índia",
-          continentId: 5
+          continentId: 5,
+          owner: 0,
+          tropas: 2
         },
         {
           "id": 31,
           name: "Vietnã",
-          continentId: 5
+          continentId: 5,
+          owner: 0,
+          tropas: 2
         },
         {
           "id": 32,
           name: "Japão",
-          continentId: 5
+          continentId: 5,
+          owner: 0,
+          tropas: 2
         },
         {
           "id": 33,
           name: "China",
-          continentId: 5
+          continentId: 5,
+          owner: 0,
+          tropas: 2
         },
         {
           "id": 34,
           name: "Mongólia",
-          continentId: 5
+          continentId: 5,
+          owner: 0,
+          tropas: 2
         },
         {
           "id": 35,
           name: "Vladoskvi",
-          continentId: 5
+          continentId: 5,
+          owner: 0,
+          tropas: 2
         },
         {
           "id": 36,
           name: "Sibéria",
-          continentId: 5
+          continentId: 5,
+          owner: 0,
+          tropas: 2
         },
         {
           "id": 37,
           name: "Tchita",
-          continentId: 5
+          continentId: 5,
+          owner: 0,
+          tropas: 2
         },
         {
           "id": 38,
           name: "Stonka",
-          continentId: 5
+          continentId: 5,
+          owner: 0,
+          tropas: 2
         }
       ]
     },
@@ -224,22 +309,30 @@ export const map = {
         {
           "id": 39,
           name: "Sumatra",
-          continentId: 6
+          continentId: 6,
+          owner: 0,
+          tropas: 2
         },
         {
           "id": 40,
           name: "Borneo",
-          continentId: 6
+          continentId: 6,
+          owner: 0,
+          tropas: 2
         },
         {
           "id": 41,
           name: "Nova Guiné",
-          continentId: 6
+          continentId: 6,
+          owner: 0,
+          tropas: 2
         },
         {
           "id": 42,
           name: "Austrália",
-          continentId: 6
+          continentId: 6,
+          owner: 0,
+          tropas: 2
         }
       ]
     }
