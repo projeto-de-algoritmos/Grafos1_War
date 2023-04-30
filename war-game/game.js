@@ -106,7 +106,7 @@ while (jogador_vencedor == -1) {
                     return elem.id == territorioDefesa;
                 });
 
-                let definicaoAtaque = sistema_Ataque(territorios[territorioAtaque].id, territorios[territorioDefesa].id, i);
+                let definicaoAtaque = sistema_Ataque(territorios[territorioAtaque], territorios[territorioDefesa], i);
 
                 continuaAtaque = prompt("Você deseja realizar mais algum ataque? (0 para NÃO e 1 para SIM) ");
             }

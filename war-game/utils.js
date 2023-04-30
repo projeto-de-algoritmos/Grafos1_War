@@ -68,14 +68,8 @@ function fim_Jogo() {
 
 function sistema_Ataque(territorioAtaque, territorioDefesa, jogadorAtaque) {
 
-    territorioAtaque = territorios[territorioAtaque];
-    territorioDefesa = territorios[territorioDefesa];
-
-    console.log('Territorio ataque: ' + territorioAtaque.nome);
-    console.log('Territorio defesa: ' + territorioDefesa.nome);
-
     // Verifica se territórios são vizinhos
-    if (mapa.ListaAdj.get(territorioAtaque).indexOf(territorioDefesa) === -1) {
+    if (mapa.ListaAdj.get(territorioAtaque.id).indexOf(territorioDefesa.id) === -1) {
         console.log('Esses territórios não são vizinhos!\n');
         return -1;
     }
@@ -106,10 +100,7 @@ function sistema_Ataque(territorioAtaque, territorioDefesa, jogadorAtaque) {
         }
     }
 
-    if (territorioDefesa.tropas == 1) {
-        console.log('Você não pode atacar com 1 tropa!\n');
-        return -1;
-    } else if (territorioDefesa.tropas == 2) {
+    if (territorioDefesa.tropas == 2) {
         defesa += Math.floor(Math.random() * 6) + 1;
     } else if (territorioDefesa.tropas == 3) {
         for (let i = 0; i < 2; i++) {
@@ -121,12 +112,15 @@ function sistema_Ataque(territorioAtaque, territorioDefesa, jogadorAtaque) {
         }
     }
 
+    console.log(ataque, defesa);
+
     if (ataque > defesa) {
         console.log('Seu ataque venceu!\n');
         territorioDefesa.tropas = territorioDefesa.tropas - quantidade_Ataque;
         if (territorioDefesa.tropas <= 0) {
             console.log('E você ganhou o território!\n');
             territorioDefesa.jogador = jogadorAtaque;
+            territorioDefesa.tropas = 1;
         }
         return 1;
     } else {
