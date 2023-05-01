@@ -73,6 +73,8 @@ map.continents.forEach(continent => {
     
 });
 
+console.log(territorios) 
+console.log(mapa.ListaAdj)
 
 // Adiciona as arestas (fronteiras)
 for (const border of map.borders) {

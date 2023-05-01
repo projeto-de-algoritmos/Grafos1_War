@@ -1,5 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Region } from 'src/app/interface/Region';
+import { sistema_Ataque } from 'src/assets/utils/utils';
+import { HomepageService } from '../homepage.service';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-battle-page',
@@ -8,27 +11,48 @@ import { Region } from 'src/app/interface/Region';
 })
 export class BattlePageComponent implements OnInit {
 
+  @Input() player !: number;
   @Input() territory !: Region;
-  @Input() enemy !: Region;
   @Output() closed : EventEmitter<any> = new EventEmitter();
+  
+  enemyForm !: FormGroup
+  enemy !: Region | undefined;
 
-  neighborList = [
-    "Australia",
-    "Brasil",
-    "California",
-    "Vladivostok"
-  ]
+  constructor(private homePageService : HomepageService) { }
+
+  neighborList !: (Region | undefined) []
 
   ngOnInit(): void {
+
+    this.enemyForm = new FormGroup({
+      option: new FormControl('')
+    })
+
+    this.findNeighbors()
     console.log("Criado com sucesso")    
   }
+
 
   close(): void {
     this.closed.emit()
   }
 
+  findNeighbors() : void {
+    this.neighborList = this.homePageService.findNeighbors(this.territory.id)
+    console.log(this.neighborList)
+  }
+
   attack() : void {
-    //Adicionar lógica de ataque e fazer o controle de tropas
+    console.log(this.enemyForm.value.option)
+
+    const formResult = this.enemyForm.value
+
+    this.enemy = this.neighborList.find(neighbor => neighbor?.id == formResult.option)
+
+    if(this.enemy === undefined) this.enemy = {id: 0, continentId: 0, name: '',  owner: 0, tropas: 1}
+    
+    if(sistema_Ataque(this.territory, this.enemy, this.player) != -1) this.homePageService.updateMap() 
+    
     console.log("Ataque acontecendo")
   }
 

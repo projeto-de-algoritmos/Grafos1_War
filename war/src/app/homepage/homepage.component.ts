@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Region } from '../interface/Region';
 import { Mapa } from '../interface/Mapa';
 import { HomepageService } from './homepage.service';
+import { fim_Jogo } from 'src/assets/utils/utils';
+import jogador_objetivo from '../../assets/utils/objetivos-utils'
 
 @Component({
   selector: 'app-homepage',
@@ -24,11 +26,12 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit() : void {
     this.mapa = this.homePageService.returnMap()
+    console.log(this.mapa)
   }
 
   handleClick(territorio: Region): void {
 
-    if (territorio.owner != this.turn) {
+    if (territorio.owner != this.turn-1) {
       window.alert("Este território não pertence a você jogador " + this.turn)
       return;
     }
@@ -57,8 +60,23 @@ export class HomepageComponent implements OnInit {
   }
 
   changeTurn() : void {
+    const fim = fim_Jogo()
+
+    console.log(fim)
+
+    if(fim > 0) {
+      const objetivo = jogador_objetivo.jogador_objetivo.find(objetivo => objetivo.jogador == this.turn);
+      window.alert(`Parabens ao jogador ${this.turn}, você atingiu seu objetivo : ${objetivo?.objetivo.descricao}`)
+      this.started = !this.started
+
+      window.location.reload()
+      
+      return
+    }
+
     this.turnOf()
     window.alert(`Agora é a vez do jogador ${this.turn} `)
+
     this.isAllocating = !this.isAllocating;
     this.startPlay = !this.startPlay;
   }

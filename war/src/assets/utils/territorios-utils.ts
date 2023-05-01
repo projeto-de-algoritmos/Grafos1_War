@@ -1,12 +1,12 @@
+import { Region } from 'src/app/interface/Region';
 import { Graph, mapa, territorios } from './grafo';
 
 // Lista de jogadores -> 1 a 6
 export let jogadores: number[] = [0, 1, 2, 3, 4, 5];
 
 // Embaralha a lista de territórios
-let territorios_random = territorios.sort(function () {
-    return Math.random() - 0.5;
-});
+let territorios_random = [...territorios].sort(() => { return Math.random() - 0.5})
+
 
 let idx = 0;
 let new_idx = 0;
@@ -17,7 +17,7 @@ for(const jogador of jogadores) {
     // Pega os territórios aleatórios que serão atribuídos os jogadores
     let territoriosJogador = territorios_random.slice(idx, idx + (Math.floor(territorios.length / jogadores.length)));
 
-    // Atualiza os territórios com o jogador e 1 tropa
+    // Atualiza os territórios com o jogador e 2 tropa
     for (const territorio of territoriosJogador) {
 
         territorios[new_idx] = {
@@ -25,7 +25,7 @@ for(const jogador of jogadores) {
             name: territorio.name, 
             continentId: territorio.continentId, 
             owner: jogador, 
-            tropas : 1
+            tropas : 2
         }
 
         new_idx += 1;
@@ -39,9 +39,21 @@ for(const jogador of jogadores) {
 let jogadores_continente: number[] = [];
 // Para debug/melhor visualização
 let busca_continentes  = [];
-    
+
+function bfs_neighbors(graph : Graph, regionId : number) : (Region | undefined)[] {
+
+    let neighbors = []
+
+    for(const neighbor of graph.ListaAdj.get(regionId)) {
+        neighbors.push(territorios.find(territorio => territorio.id == neighbor))
+    }
+
+    return neighbors
+}
+
+
 // BFS que analisa um continente inteiro
-function bfs_Continente(graph: Graph, noInicio: number, jogador = 10) {
+function bfs_Continente(graph: Graph, noInicio: number, jogador = 10) : number {
     
 
     // Fila da BFS e array de visitados
@@ -100,7 +112,7 @@ function bfs_Continente(graph: Graph, noInicio: number, jogador = 10) {
 
     //console.log(busca_continentes);
 
-    // Verifica se todos os continentes (lista de jogadores por continente visitado) pertencem a um mesmo jogador
+    // Verifica se todos os territorios de um continente (lista de jogadores por continente visitado) pertencem a um mesmo jogador
     if (jogadores_continente.every(value => value === valor_jogador)) {
         return valor_jogador;
     } else {
@@ -112,14 +124,14 @@ function bfs_Continente(graph: Graph, noInicio: number, jogador = 10) {
 let territorios_continentes = [1, 10, 14, 21, 27, 39]
 
 // Analisa se um jogador possui um continente inteiro
-function analisa_Bonus(jogadorAtual : number) {
+function analisa_Bonus(jogadorAtual : number) : number {
     let valor_jogador, qtd = 0;
 
     // Adiciona 3 para cada continente a mais que o jogador possui
     for(const territorio_continente of territorios_continentes){
 
         valor_jogador = bfs_Continente(mapa, territorio_continente);
-        
+
         if (valor_jogador == jogadorAtual) {
             qtd += 3;
         }
@@ -132,5 +144,6 @@ function analisa_Bonus(jogadorAtual : number) {
                     
 export {
     bfs_Continente,
+    bfs_neighbors,
     analisa_Bonus
 }

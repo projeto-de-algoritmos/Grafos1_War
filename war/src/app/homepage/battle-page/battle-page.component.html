@@ -7,9 +7,11 @@
     <h2>Territorio inimigo</h2>
     <p *ngIf="enemy">{{enemy.name}}</p>
 
-    <select class="form-select" aria-label="Default select example">
-        <option *ngFor="let item of neighborList" value="{{item}}">{{item}}</option>
-    </select>
+    <form [formGroup]="enemyForm" (ngSubmit)="attack()">
+        <select formControlName="option" class="form-select" aria-label="Default select example">
+            <option *ngFor="let item of neighborList" value="{{item?.id}}">{{item?.name}}</option>
+        </select>
+        <button type="submit">Atacar</button>
+    </form>
 
-    <button *ngIf="enemy">Atacar</button>
 </div>

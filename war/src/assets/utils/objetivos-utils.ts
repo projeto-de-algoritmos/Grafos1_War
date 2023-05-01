@@ -44,6 +44,8 @@ jogadores.forEach((jogador, index) => {
     jogador_objetivo.push({ jogador: jogador, objetivo: objetivoIndex[index] });
 })
 
+console.log(jogador_objetivo)
+
 // Exporta o módulo necessário
 export default {
     jogador_objetivo

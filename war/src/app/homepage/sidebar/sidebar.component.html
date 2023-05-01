@@ -10,7 +10,7 @@
             </div>
             
             <div class="territorio-card" *ngFor="let territorio of continente.regions">
-                <div class="territorio-card" [ngStyle]="{'background-color': active ? colorTerritory(continente.id-1,territorio.id) : 'white', 'color' : !active ? 'black' : 'white'}" id="{{territorio.id}}">
+                <div class="territorio-card" [ngStyle]="{'background-color': active ? colorTerritory(territorio.id) : 'white', 'color' : !active ? 'black' : 'white'}" id="{{territorio.id}}">
                     <p (click)="checkMap(territorio)" >{{territorio.name}}</p>
                     <p>Tropas: {{territorio.tropas}}</p>
                 </div>

@@ -21,48 +21,37 @@ export class SidebarComponent implements OnInit {
   constructor(private homePageService: HomepageService){}
 
   ngOnInit() : void {
-    //console.log(map)
-    this.distribuiton();
+    // console.log(map)
   }
 
   checkMap(territorio : Region) : void {
 
     //window.alert(`Territorio Selecionado: ${territorio.name}`)
+    console.log(`ID owner : ${territorio.owner}` )
     this.territory.emit(territorio)
 
   }
 
-  colorTerritory(continentId : number,territoryId : number) : string {
+  colorTerritory(territoryId : number) : string {
     
-    const playerId = this.mapa.continents[continentId].regions.find(region => region.id == territoryId);
+    const playerId = this.homePageService.findTerritory(territoryId);
 
     switch (playerId?.owner) {
-      case 1:
+      case 0:
         return 'blue';
-      case 2:
+      case 1:
         return 'orange';
-      case 3:
+      case 2:
         return 'red';
-      case 4:
+      case 3:
         return 'purple';
-      case 5:
+      case 4:
         return 'gray';
-      case 6:
+      case 5:
         return 'green';
       default:
         return 'black';
     }
   }
 
-  distribuiton() : void {
-
-    this.mapa.continents.forEach(continent => {
-      continent.regions.forEach((regions,index) => {
-        this.homePageService.modifyOwner(continent.id - 1, index, Math.floor(Math.random()*7- 0.1))
-      })
-
-    })
-
-    console.log(this.homePageService.returnMap())
-  }
 }
