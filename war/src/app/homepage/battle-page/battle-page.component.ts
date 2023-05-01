@@ -51,9 +51,26 @@ export class BattlePageComponent implements OnInit {
 
     if(this.enemy === undefined) this.enemy = {id: 0, continentId: 0, name: '',  owner: 0, tropas: 1}
     
-    if(sistema_Ataque(this.territory, this.enemy, this.player) != -1) this.homePageService.updateMap() 
+    const res = sistema_Ataque(this.territory, this.enemy, this.player)
+    
+    this.updateInfo(res)
     
     console.log("Ataque acontecendo")
+  }
+
+  updateInfo(statusAtaque : number) : void {
+    console.log(this.player)
+    if(statusAtaque == -1){
+      
+      return
+
+    } else if(statusAtaque == 1){
+
+      this.homePageService.finished(this.player)
+
+    }
+
+    this.homePageService.updateMap()
   }
 
 }

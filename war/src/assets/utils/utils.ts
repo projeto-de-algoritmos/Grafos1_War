@@ -113,7 +113,7 @@ export function sistema_Ataque(territorioAtaque: Region, territorioDefesa: Regio
         }
     }
 
-    console.log(ataque, defesa);
+    window.alert(`Ataque: ${ataque} vs Defesa: ${defesa}`);
 
     if (ataque > defesa) {
         window.alert('Seu ataque venceu!\n');
@@ -121,6 +121,7 @@ export function sistema_Ataque(territorioAtaque: Region, territorioDefesa: Regio
         if (territorioDefesa.tropas <= 0) {
             window.alert('E você ganhou o território!\n');
             territorioDefesa.owner = jogadorAtaque;
+            territorioAtaque.tropas--;
             territorioDefesa.tropas = 1;
         }
         return 1;

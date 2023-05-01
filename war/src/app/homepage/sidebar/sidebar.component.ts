@@ -28,7 +28,8 @@ export class SidebarComponent implements OnInit {
 
     //window.alert(`Territorio Selecionado: ${territorio.name}`)
     console.log(`ID owner : ${territorio.owner}` )
-    this.territory.emit(territorio)
+
+    this.territory.emit(this.homePageService.findTerritory(territorio.id))
 
   }
 

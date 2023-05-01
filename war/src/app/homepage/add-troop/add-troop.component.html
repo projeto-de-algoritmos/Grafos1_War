@@ -13,7 +13,7 @@
 
     <p>Tropas Restantes: {{avaliableArmy}}</p>
 
-    <button *ngIf="territory" (click)="add(territory)" >Adicionar</button>
+    <button *ngIf="territory" (click)="add(territory)" >{{avaliableArmy > 0 ? 'Adicionar' : 'Finalizar'}}</button>
 
 </div>
 

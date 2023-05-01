@@ -36,9 +36,9 @@ for(const jogador of jogadores) {
 
 
 // Analisa a lista de jogadores para os territórios de um continente
-let jogadores_continente: number[] = [];
+let jogadores_continente: number[];
 // Para debug/melhor visualização
-let busca_continentes  = [];
+let busca_continentes: [string,number][] ;
 
 function bfs_neighbors(graph : Graph, regionId : number) : (Region | undefined)[] {
 
@@ -59,6 +59,8 @@ function bfs_Continente(graph: Graph, noInicio: number, jogador = 10) : number {
     // Fila da BFS e array de visitados
     const fila: number[] = [];
     const visitado: boolean[] = new Array(graph.nVertices).fill(false);
+    busca_continentes = []
+    jogadores_continente = []
     
     // O nó inicial é visitado e o primeiro na fila
     visitado[noInicio] = true;
@@ -110,7 +112,7 @@ function bfs_Continente(graph: Graph, noInicio: number, jogador = 10) : number {
         valor_jogador = jogador;
     }
 
-    //console.log(busca_continentes);
+    console.log(busca_continentes);
 
     // Verifica se todos os territorios de um continente (lista de jogadores por continente visitado) pertencem a um mesmo jogador
     if (jogadores_continente.every(value => value === valor_jogador)) {

@@ -14,7 +14,6 @@ export class HomepageComponent implements OnInit {
     
   aux :boolean = false;
   territorio !: Region;
-  enemyTerritory !: Region;
   players : number[] = [1,2,3,4,5,6];
   startPlay : boolean = true;
   started: boolean = false;
@@ -64,8 +63,8 @@ export class HomepageComponent implements OnInit {
 
     console.log(fim)
 
-    if(fim > 0) {
-      const objetivo = jogador_objetivo.jogador_objetivo.find(objetivo => objetivo.jogador == this.turn);
+    if(fim >= 0) {
+      const objetivo = jogador_objetivo.jogador_objetivo.find(objetivo => objetivo.jogador == this.turn-1);
       window.alert(`Parabens ao jogador ${this.turn}, você atingiu seu objetivo : ${objetivo?.objetivo.descricao}`)
       this.started = !this.started
 
@@ -78,11 +77,18 @@ export class HomepageComponent implements OnInit {
     window.alert(`Agora é a vez do jogador ${this.turn} `)
 
     this.isAllocating = !this.isAllocating;
-    this.startPlay = !this.startPlay;
+    this.startPlay = !this.startPlay; 
   }
 
   changeAux(): void {
     this.aux = !this.aux;
+  }
+
+  showObjective() : void {
+    
+    const description = this.homePageService.showObjective(this.turn-1)
+    
+    window.alert(description)
   }
 
   

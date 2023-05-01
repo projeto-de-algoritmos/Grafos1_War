@@ -4,16 +4,20 @@
         <img src="../../../assets/img/right-arrow.png" alt ="arrow">
     </div>
     <div class="sidebar collapse" id="collapse">
-        <div class="continente" *ngFor="let continente of mapa.continents">
+        <div  *ngFor="let continente of mapa.continents">
             <div class="title" data-bs-toggle="collapse" data-bs-target="">
                 <h2>{{continente.name}}</h2>
             </div>
             
-            <div class="territorio-card" *ngFor="let territorio of continente.regions">
-                <div class="territorio-card" [ngStyle]="{'background-color': active ? colorTerritory(territorio.id) : 'white', 'color' : !active ? 'black' : 'white'}" id="{{territorio.id}}">
-                    <p (click)="checkMap(territorio)" >{{territorio.name}}</p>
-                    <p>Tropas: {{territorio.tropas}}</p>
+            <div class="continente">
+    
+                <div class="territorio-card" *ngFor="let territorio of continente.regions">
+                    <div class="territorio-card" [ngStyle]="{'background-color': active ? colorTerritory(territorio.id) : 'white', 'color' : !active ? 'black' : 'white'}" id="{{territorio.id}}">
+                        <p (click)="checkMap(territorio)" >{{territorio.name}}</p>
+                        <p>Tropas: {{territorio.tropas}}</p>
+                    </div>
                 </div>
+            
             </div>
         </div>
     </div>

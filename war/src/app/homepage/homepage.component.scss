@@ -21,12 +21,19 @@
     }
 }
 
+.icon {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin-left:10px;
+}
+
 .button-area {
     display: flex;
     justify-content: space-around;
     margin: auto;
 
-    width: 50%;
+    width: 100%;
 
     button {
         cursor: pointer;

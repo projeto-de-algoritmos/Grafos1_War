@@ -3,7 +3,9 @@ import { Mapa } from 'src/app/interface/Mapa';
 import { map }  from '../../assets/map/mapa-war';
 import { mapa, territorios }  from '../../assets/utils/grafo';
 import { Region } from '../interface/Region';
+import jogador_objetivo from '../../assets/utils/objetivos-utils'
 import { bfs_neighbors } from 'src/assets/utils/territorios-utils';
+import { fim_Jogo } from 'src/assets/utils/utils';
 
 
 @Injectable({
@@ -51,7 +53,6 @@ export class HomepageService {
 
     this.mapa.continents.forEach(continent => {
       continent.regions.forEach( region => {
-          console.log(region.owner, territorios[i].owner)
           region.owner = territorios[i].owner
           region.tropas = territorios[i++].tropas
       })
@@ -77,6 +78,27 @@ export class HomepageService {
     //console.log(continentId,territoryId,playerId);
 
     this.mapa.continents[continentId].regions[territoryId].owner = playerId
+  }
+
+  showObjective(player : number) : string | undefined {
+    return  jogador_objetivo.jogador_objetivo.find(objetivo => objetivo.jogador == player)
+      ?.objetivo.descricao
+  }
+  
+  finished(player : number) : void {
+    
+    const fim = fim_Jogo()
+
+    console.log(fim)
+
+    if(fim >= 0) {
+      const objetivo = jogador_objetivo.jogador_objetivo.find(objetivo => objetivo.jogador == player);
+      window.alert(`Parabens ao jogador ${player+1}, você atingiu seu objetivo : ${objetivo?.objetivo.descricao}`)
+
+      window.location.reload()
+  
+    }
+
   }
 
 }

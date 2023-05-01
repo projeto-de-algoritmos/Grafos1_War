@@ -32,10 +32,6 @@ p {
 .continente {
     height:200px;
     overflow: auto;
-    
-    h2 {
-        margin: 0;
-    }
 }
 
 .territorio-card {
@@ -46,4 +42,8 @@ p {
 .title {
     background-color: black;
     color: white;
+
+    h2 {
+        margin: 0;
+    }
 }
