@@ -1,0 +1,18 @@
+.troop-area {
+
+    background-color: white;
+    padding: 20px;
+    color: black;
+
+
+}
+
+.close {
+    display: flex;
+    justify-content: flex-end;
+
+    a {
+        background-color: white;
+        cursor: pointer;
+    }
+}

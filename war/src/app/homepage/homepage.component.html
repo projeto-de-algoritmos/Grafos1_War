@@ -1,0 +1,59 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="divisor">
+    
+    <div class="game-area">
+        <div class="row w-100">
+            <div>
+                <p> colors: <span class="icon bg-primary"></span> jogador 1
+                    <span class="icon" style="background-color: orange;"></span> jogador 2
+                    <span class="icon bg-danger"></span> jogador 3
+                    <span class="icon" style="background-color: purple;"></span> jogador 4 
+                    <span class="icon bg-secondary "></span> jogador 5
+                    <span class="icon bg-success"></span> jogador 6 
+                </p>
+            </div>
+            <h2 class="text-center"> Let's Play</h2>
+
+        </div>
+    
+
+        <img src="https://a-static.mlcdn.com.br/1500x1500/jogo-war-tabuleiro-o-jogo-da-estrategia-war-edicao-especial-grow/magazineluiza/220544300/240b6d61d4bbeb13d903bea4fe528704.jpg" alt="Mapa">
+        
+        <div class="button-area">
+            <button *ngIf="!started" (click)="startGame()">Iniciar</button>
+            <button *ngIf="started" (click)="showObjective()">Mostrar Objetivo</button>
+            <button>Instruções</button>
+            <button *ngIf="!isAllocating && started" (click)="changeTurn()">Finalizar Ataque</button>
+        
+        </div>
+        
+        <div class="p-3 w-100">
+
+            <app-add-troop
+            *ngIf="isAllocating"
+            [player]="turn"
+            (alocated)="endAllocation()"
+            [territory]="territorio"
+            [isAllocating]="isAllocating"
+            ></app-add-troop>
+            
+        </div>
+
+
+    </div>
+
+    <app-sidebar 
+        (territory)="handleClick($event)"
+        [active]="started"
+        [mapa]="mapa"
+    ></app-sidebar>
+    
+    <app-battle-page 
+        *ngIf="aux"
+        (closed)="changeAux()"
+        [territory]="territorio"
+        [player]="turn-1"
+    ></app-battle-page>
+
+</div>

@@ -1,0 +1,25 @@
+.battle-area {
+    position: absolute;
+    background-color: black;
+    color: white;
+    right: 25%;
+    top: 19%;
+    height: 400px;
+    width: 400px;
+    padding: 20px;
+}
+
+.close {
+    display: flex;
+    justify-content: flex-end;
+
+    a {
+        background-color: white;
+        cursor: pointer;
+    }
+}
+
+
+p {
+    color: white;
+}
