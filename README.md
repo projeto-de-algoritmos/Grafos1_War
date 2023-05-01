@@ -20,14 +20,36 @@ Vídeo para apresentação do projeto feito pela dupla:
 ## Screenshots
 Adicione 3 ou mais screenshots do projeto em funcionamento.
 
+<img src="./assets/foto1jogo.png" style="width: 700px; height: 500px"></img>
+<img src="./assets/foto3jogo.png" style="width: 700px; height: 500px"></img>
+<img src="./assets/foto5jogo.png" style="width: 700px; height: 500px"></img>
+<img src="./assets/foto7jogo.png" style="width: 700px; height: 500px"></img>
+<img src="./assets/foto8jogo.png" style="width: 700px; height: 500px"></img>
+
+Mais fotos em [Imagens extras](./assets/Fotos.md)
+
 ## Instalação 
 **Linguagem**: JavaScript<br>
 **Framework**: Angular<br>
 
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
+# War
+
+Para rodar o projeto é necessário ter o Angular e o [NodeJs](https://nodejs.org/en) instalados na máquina.
+
+Este projeto foi gerado utilizando  [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
+
+Depois de realizar a instalação de ambos é necessário rodar o comando:
+
+`npm install`
+
+## Development server
+
+Rode o comando `ng serve` para iniciar o servidor em ambiente de desenvolvimento. Navegue para `http://localhost:4200/`. A aplicação irá automaticamente recarregar se você fizer qualquer mudança nos arquivos.
+
 
 ## Uso 
-Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
+
+O uso é bem simples, basta clicar no botão de iniciar jogo na interface inicial da aplicação e começar a jogar.
 
 ## Outros 
 
