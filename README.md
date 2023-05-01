@@ -20,7 +20,7 @@ Vídeo para apresentação do projeto feito pela dupla:
 ## Screenshots
 Adicione 3 ou mais screenshots do projeto em funcionamento.
 
-<img src="./assets/foto1jogo.png" style="width: 700px; height: 500px"></img>
+<img src="./assets/foto1Jogo.png" style="width: 700px; height: 500px"></img>
 <img src="./assets/foto3jogo.png" style="width: 700px; height: 500px"></img>
 <img src="./assets/foto5jogo.png" style="width: 700px; height: 500px"></img>
 <img src="./assets/foto7jogo.png" style="width: 700px; height: 500px"></img>
