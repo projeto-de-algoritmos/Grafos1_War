@@ -18,8 +18,6 @@ A principal ligação entre o projeto e o conteúdo foi a de distribuir o mapa (
 Vídeo para apresentação do projeto feito pela dupla:
 
 ## Screenshots
-Adicione 3 ou mais screenshots do projeto em funcionamento.
-
 <img src="./assets/foto1Jogo.png" style="width: 700px; height: 500px"></img>
 <img src="./assets/foto3jogo.png" style="width: 700px; height: 500px"></img>
 <img src="./assets/foto5jogo.png" style="width: 700px; height: 500px"></img>
@@ -32,9 +30,7 @@ Mais fotos em [Imagens extras](./assets/Fotos.md)
 **Linguagem**: JavaScript / TypeScript<br>
 **Framework**: Angular<br>
 
-# War
-
-Para rodar o projeto é necessário ter o Angular e o [NodeJs](https://nodejs.org/en) instalados na máquina.
+Para rodar o projeto é necessário ter o [Angular](https://angular.io/cli) e o [NodeJs](https://nodejs.org/en) instalados na máquina.
 
 Este projeto foi gerado utilizando  [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
 
@@ -42,10 +38,9 @@ Depois de realizar a instalação de ambos é necessário rodar o comando:
 
 `npm install`
 
-## Development server
+## Servidor
 
 Rode o comando `ng serve` para iniciar o servidor em ambiente de desenvolvimento. Navegue para `http://localhost:4200/`. A aplicação irá automaticamente recarregar se você fizer qualquer mudança nos arquivos.
-
 
 ## Uso 
 
