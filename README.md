@@ -29,7 +29,7 @@ Adicione 3 ou mais screenshots do projeto em funcionamento.
 Mais fotos em [Imagens extras](./assets/Fotos.md)
 
 ## Instalação 
-**Linguagem**: JavaScript<br>
+**Linguagem**: JavaScript / TypeScript<br>
 **Framework**: Angular<br>
 
 # War
